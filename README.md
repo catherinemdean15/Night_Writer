@@ -1,1 +1,2 @@
 # night_writer
+On the front lines of Napoleon's army, the glow of lights to read maps or letters shone as beacons for enemy snipers. To combat this deadly issue, a soldier developed a way to read in complete darkness-- giving birth to the concept of Braille. The purpose of Night_Writer is to convert files from English characters into Braille-like text, and convert files from Braille-like text to English characters.
