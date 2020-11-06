@@ -9,5 +9,4 @@ class Output
     "Created '#{@new_file_name}' containing #{@character_amount} characters"
   end
 
-
 end
