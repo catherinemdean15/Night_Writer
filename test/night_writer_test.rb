@@ -5,7 +5,7 @@ require './lib/night_writer'
 
 
  # THIS NEEDS UPDATING...
- 
+
 class NightWriterTest < Minitest::Test
 
   def setup
