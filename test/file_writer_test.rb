@@ -6,11 +6,15 @@ class FileWriterTest < Minitest::Test
 
   def setup
     file_path = 'message.txt'
-    @file_writer = FileWriter.new(file_path)
+    @file_writer = FileWriter.new(file_path, "braille.txt")
   end
 
   def test_it_exists
     assert_instance_of FileWriter, @file_writer
+  end
+
+  def test_it_counts_characters
+    assert_equal 13, @file_writer.count_characters
   end
 
   def test_it_reads_file
