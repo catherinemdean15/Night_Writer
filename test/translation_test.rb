@@ -16,7 +16,7 @@ class TranslationTest < Minitest::Test
   end
 
   def test_it_translates_one_character
-    assert_equal "0..\n...\n...\n", @translation.translate
+    assert_equal ["0..\n...\n...\n"], @translation.translate
   end
 
 end
