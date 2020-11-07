@@ -21,7 +21,7 @@ class FileWriter
   end
 
   def create_output
-    Output.new(@new_file_name, count_characters)
+    Output.new(@new_file_name, count_characters).reply
   end
 
 end
