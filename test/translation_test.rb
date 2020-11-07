@@ -7,7 +7,7 @@ require './lib/translation'
 class TranslationTest < Minitest::Test
 
   def setup
-    contents = "a"
+    contents = "hi"
     @translation = Translation.new(contents)
   end
 
@@ -16,7 +16,19 @@ class TranslationTest < Minitest::Test
   end
 
   def test_it_translates_one_character
-    assert_equal ["0..\n...\n...\n"], @translation.translate
+    contents = "a"
+    translation_2 = Translation.new(contents)
+    assert_equal [["0.","..",".."]], translation_2.translate
+  end
+
+  def test_join_by_row
+    expected = {1=>"0..0", 2=>"000.", 3=>"...."}
+    assert_equal expected, @translation.join_by_row
+
+  end
+
+  def test_it_joins_characters
+    assert_equal "0..0\n000.\n....", @translation.join_characters
   end
 
 end
