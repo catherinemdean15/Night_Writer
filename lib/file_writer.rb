@@ -20,4 +20,8 @@ class FileWriter
     new_file.close
   end
 
+  def create_output
+    Output.new(@new_file_name, count_characters)
+  end
+
 end

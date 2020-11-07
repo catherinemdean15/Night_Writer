@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/file_writer'
+require './lib/output'
 
 class FileWriterTest < Minitest::Test
 
@@ -25,6 +26,10 @@ class FileWriterTest < Minitest::Test
     new_file = 'braille.txt'
     assert new_file, @file_writer.write_file
     assert_equal "hello world \n", File.read(new_file)
+  end
+
+  def test_it_creates_output
+    assert_instance_of Output, @file_writer.create_output
   end
 
 end
