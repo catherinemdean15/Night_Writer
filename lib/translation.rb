@@ -2,6 +2,7 @@ class Translation
 
   def initialize(contents)
     @contents = contents.chars
+    @letters_by_row = Hash.new
     @dictionary = { "a" => ["0.","..",".."],
                     "b" => "0.\n0.\n..",
                     "c" => "00\n..\n..",
@@ -53,8 +54,8 @@ class Translation
   end
 
   def join_characters
-    # require "pry"; binding.pry
-    join_by_row
+    letters_by_row = join_by_row
+    "#{letters_by_row[1]}\n#{letters_by_row[2]}\n#{letters_by_row[3]}"
   end
 
 
