@@ -31,4 +31,9 @@ class TranslationTest < Minitest::Test
     assert_equal "0.0.\n....\n....", @translation.join_characters
   end
 
+  def test_splits_characters_over_lines
+    line = (File.readlines("braille.txt")[1]).length 
+    assert line < 81
+  end
+
 end
