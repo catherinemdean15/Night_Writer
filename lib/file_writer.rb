@@ -1,4 +1,5 @@
 require './lib/translation'
+require './lib/format'
 
 class FileWriter
 
@@ -18,8 +19,9 @@ class FileWriter
 
   def write_file
     translation = Translation.new(read_file)
+    format = Format.new(translation)
     new_file = File.new(@new_file_name, "w")
-    new_file.write(translation.join_characters)
+    new_file.write(format.final_string)
     new_file.close
   end
 
