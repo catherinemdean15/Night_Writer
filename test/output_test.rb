@@ -1,6 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/output'
+require './test/test_helper'
 
 class OutputTest < Minitest::Test
 

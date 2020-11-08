@@ -1,8 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/file_writer'
-require './lib/output'
-require './lib/translation'
+require './test/test_helper'
 
 class TranslationTest < Minitest::Test
 
