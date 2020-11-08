@@ -21,19 +21,4 @@ class TranslationTest < Minitest::Test
     assert_equal [["0.","..",".."]], translation_2.translate
   end
 
-  def test_join_by_row
-    expected = {0=>"0.0.", 1=>"....", 2=>"...."}
-    assert_equal expected, @translation.join_by_row
-
-  end
-
-  def test_it_joins_characters
-    assert_equal "0.0.\n....\n....", @translation.join_characters
-  end
-
-  def test_splits_characters_over_lines
-    line = (File.readlines("braille.txt")[1]).length 
-    assert line < 81
-  end
-
 end
