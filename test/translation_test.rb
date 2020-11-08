@@ -15,7 +15,7 @@ class TranslationTest < Minitest::Test
   end
 
   def test_braille?
-    contents = "0.\n..\n.."
+    contents = "0.00\n0..0\n..00"
     translation_2 = Translation.new(contents)
     assert_equal true, translation_2.braille?
   end
@@ -24,6 +24,12 @@ class TranslationTest < Minitest::Test
     contents = "a"
     translation_3 = Translation.new(contents)
     assert_equal [["0.","..",".."]], translation_3.translate
+  end
+
+  def test_it_translates_when_braille
+    contents = "0.00\n0..0\n..00"
+    translation_3 = Translation.new(contents)
+    assert_equal "a", translation_3.translate
   end
 
 end
