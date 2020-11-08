@@ -1,3 +1,5 @@
+require './lib/translation'
+
 class FileWriter
 
   def initialize(file_path, new_file_name)
