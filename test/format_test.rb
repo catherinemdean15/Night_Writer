@@ -23,20 +23,26 @@ class FormatTest < Minitest::Test
     assert_equal expected, @format.join_by_row
   end
 
-  def test_it_joins_characters
-    file_writer_2 = FileWriter.new("long_message.txt", "long_braille.txt")
-    translation_2 = Translation.new(file_writer_2.read_file)
-    format_2 = Format.new(translation_2)
-    assert_equal "0.0.0.0.0....00.0.0.00.. \n00.00.0..0..00.0000..000 \n....0.0.0....00.0.0...0. ", format_2.join_characters
-  end
-
   def test_format_line_length
     file_writer_2 = FileWriter.new("long_message.txt", "long_braille.txt")
     translation_2 = Translation.new(file_writer_2.read_file)
     format_2 = Format.new(translation_2)
-    file_writer_2.write_file
-    line = (File.readlines("long_braille.txt")[1]).length
-    assert line < 81, format_2.format_line_length
+    line = format_2.format_line_length.values[0].length
+    assert line < 81, line
+  end
+
+  def test_it_joins_characters
+    file_writer_2 = FileWriter.new("long_message.txt", "long_braille.txt")
+    translation_2 = Translation.new(file_writer_2.read_file)
+    format_2 = Format.new(translation_2)
+    assert_equal 12, format_2.join_characters.keys.count
+  end
+
+  def test_final_string
+    file_writer_2 = FileWriter.new("long_message.txt", "long_braille.txt")
+    translation_2 = Translation.new(file_writer_2.read_file)
+    format_2 = Format.new(translation_2)
+    assert_equal 810, format_2.final_string.size
   end
 
 end
