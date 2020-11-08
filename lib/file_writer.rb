@@ -15,8 +15,9 @@ class FileWriter
   end
 
   def write_file
+    translation = Translation.new(read_file)
     new_file = File.new(@new_file_name, "w")
-    new_file.write(read_file)
+    new_file.write(translation.join_characters)
     new_file.close
   end
 
