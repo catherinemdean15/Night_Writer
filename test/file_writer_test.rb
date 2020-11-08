@@ -3,6 +3,7 @@ require 'minitest/pride'
 require './lib/file_writer'
 require './lib/translation'
 require './lib/output'
+require './lib/format'
 
 class FileWriterTest < Minitest::Test
 
