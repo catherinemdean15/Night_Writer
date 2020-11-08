@@ -27,9 +27,13 @@ class FormatTest < Minitest::Test
     assert_equal "0.0.0.0.0....00.0.0.00.. \n00.00.0..0..00.0000..000 \n....0.0.0....00.0.0...0. ", @format.join_characters
   end
 
-  def test_splits_characters_over_lines
-    line = (File.readlines("braille.txt")[1]).length
-    assert line < 81
+  def test_format_line_length
+    file_writer_2 = FileWriter.new("long_message.txt", "long_braille.txt")
+    translation_2 = Translation.new(file_writer_2.read_file)
+    format_2 = Format.new(translation_2)
+    file_writer_2.write_file
+    line = (File.readlines("long_braille.txt")[1]).length
+    assert line < 81, format_2.format_line_length
   end
 
 end

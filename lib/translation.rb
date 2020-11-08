@@ -1,4 +1,5 @@
 class Translation
+attr_reader :contents
 
   def initialize(contents)
     @contents = contents.chars
