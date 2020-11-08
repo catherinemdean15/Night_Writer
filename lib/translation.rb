@@ -36,9 +36,17 @@ attr_reader :contents
     }
   end
 
+  def braille?
+    @contents.all? do |content|
+      content == "0" || content == "." || content == "\n"
+    end
+  end
+
   def translate
-    @contents.map do |character|
+    if !braille?
+      @contents.map do |character|
       @dictionary[character]
+      end
     end
   end
 

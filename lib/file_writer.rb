@@ -6,7 +6,6 @@ class FileWriter
   def initialize(file_path, new_file_name)
     @file_path = file_path
     @new_file_name = new_file_name
-    @character_count = 0
   end
 
   def count_characters
