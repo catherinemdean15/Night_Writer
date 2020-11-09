@@ -24,5 +24,10 @@ class BrailleTranslatorTest < Minitest::Test
     assert_equal expected, @braille_translator.row_to_letter
   end
 
+  def test_complete_letters
+    expected = [["0.","0.",".."], ["00",".0","00"]]
+    assert_equal expected, @braille_translator.complete_letters
+  end
+
 
 end
