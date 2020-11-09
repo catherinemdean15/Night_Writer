@@ -1,5 +1,6 @@
 require './lib/translation'
 require './lib/format'
+require './lib/output'
 
 class FileWriter
 

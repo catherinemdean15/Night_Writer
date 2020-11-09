@@ -1,3 +1,5 @@
+require './lib/braille_translator'
+
 class Translation
 attr_reader :contents
 
@@ -69,7 +71,7 @@ attr_reader :contents
 
   def braille?
     @contents.chars.all? do |content|
-      content == "0" || content == "." || content == "\n"
+      content == "0" || content == "." || content == "\n" || content == " "
     end
   end
 
