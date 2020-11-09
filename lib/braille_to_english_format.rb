@@ -1,8 +1,6 @@
-class BrailleToEnglishFormat
+require './lib/translation'
 
-  def initialize(contents)
-    @contents = contents
-  end
+class BrailleToEnglishFormat < Translation
 
   def convert_to_rows
     row_and_contents = Hash.new
@@ -45,6 +43,10 @@ class BrailleToEnglishFormat
         end
     end
     formatted_letters
+  end
+
+  def format_translation
+    translate(formatted_complete_letters)
   end
 
 end

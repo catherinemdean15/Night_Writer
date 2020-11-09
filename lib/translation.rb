@@ -1,7 +1,8 @@
-require './lib/braille_translator'
+require './lib/brailleable'
 
 class Translation
-attr_reader :contents
+  include Brailleable
+  attr_reader :contents
 
   def initialize(contents)
     @contents = contents
@@ -69,32 +70,15 @@ attr_reader :contents
     }
   end
 
-  def braille?
-    @contents.chars.all? do |content|
-      content == "0" || content == "." || content == "\n" || content == " "
-    end
-  end
-
-  def braille_complete_letters
-    braille_letters = BrailleToEnglishFormat.new(@contents)
-    braille_letters.formatted_complete_letters
-  end
-
-  def format_translation(translation)
-    formatted_translation = EnglishToBrailleFormat.new(translation)
-    formatted_translation.final_string
-  end
-
-  def translate
+  def translate(contents)
     if braille?
-      braille_complete_letters.map do |character|
+      contents.map do |character|
         @english_dictionary[character]
       end.join()
     else
-      translation = @contents.chars.map do |character|
+      contents.chars.map do |character|
         @braille_dictionary[character]
       end
-      format_translation(translation)
     end
   end
 
