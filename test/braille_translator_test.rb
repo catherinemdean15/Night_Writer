@@ -1,7 +1,4 @@
-# require './test/test_helper'
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/braille_translator'
+require './test/test_helper'
 
 class BrailleTranslatorTest < Minitest::Test
 

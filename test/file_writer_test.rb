@@ -1,8 +1,4 @@
-# require './test/test_helper'
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/file_writer'
-require 'mocha/minitest'
+require './test/test_helper'
 
 class FileWriterTest < Minitest::Test
 
