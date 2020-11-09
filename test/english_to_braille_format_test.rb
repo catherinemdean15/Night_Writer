@@ -1,16 +1,16 @@
 require './test/test_helper'
 
-class FormatTest < Minitest::Test
+class EnglishToBrailleFormatTest < Minitest::Test
 
   def setup
     file_path = "short_message.txt"
     @file_writer = FileWriter.new(file_path, "braille.txt")
     @translation = Translation.new(@file_writer.read_file)
-    @format = Format.new(@translation)
+    @format = EnglishToBrailleFormat.new(@translation)
   end
 
   def test_it_exists
-    assert_instance_of Format, @format
+    assert_instance_of EnglishToBrailleFormat, @format
   end
 
   def test_join_by_row

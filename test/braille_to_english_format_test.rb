@@ -1,14 +1,14 @@
 require './test/test_helper'
 
-class BrailleTranslatorTest < Minitest::Test
+class BrailleToEnglishFormatTest < Minitest::Test
 
   def setup
     contents = "0.00\n0..0\n..00\n\n0.00\n0..0\n..00\n"
-    @braille_translator = BrailleTranslator.new(contents)
+    @braille_translator = BrailleToEnglishFormat.new(contents)
   end
 
   def test_it_exists
-    assert_instance_of BrailleTranslator, @braille_translator
+    assert_instance_of BrailleToEnglishFormat, @braille_translator
   end
 
   def test_it_converts_to_rows
