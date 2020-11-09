@@ -3,16 +3,17 @@ require './test/test_helper'
 class OutputTest < Minitest::Test
 
   def setup
-    @output = Output.new('braille.txt', 256)
+    @output = Output.new("message.txt", "sample.txt")
   end
 
-  def test_it_exitst
+  def test_it_exists
     assert_instance_of Output, @output
   end
 
   def test_it_replies
-    expected = "Created 'braille.txt' containing 256 characters"
-    assert_equal expected , @output.reply
+    File.stubs(:read).returns("hello")
+    expected = "Created 'sample.txt' containing 5 characters"
+    assert_equal expected, @output.reply
   end
 
 end
