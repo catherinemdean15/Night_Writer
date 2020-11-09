@@ -1,9 +1,11 @@
 require './lib/translation'
 require './lib/format'
 require './lib/output'
+require './lib/brailleable'
 
 class FileWriter
-
+  include Brailleable
+  
   def initialize(file_path, new_file_name)
     @file_path = file_path
     @new_file_name = new_file_name
