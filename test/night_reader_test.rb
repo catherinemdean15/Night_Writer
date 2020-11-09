@@ -1,0 +1,6 @@
+# require './test/test_helper'
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/translation'
+require './lib/braille_translator'
+require './lib/format'
