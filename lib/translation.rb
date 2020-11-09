@@ -2,7 +2,7 @@ class Translation
 attr_reader :contents
 
   def initialize(contents)
-    @contents = contents.chars
+    @contents = contents
     @braille_dictionary = { "a" => ["0.", "..", ".."],
                             "b" => ["0.", "0.", ".."],
                             "c" => ["00", "..", ".."],
@@ -68,17 +68,21 @@ attr_reader :contents
   end
 
   def braille?
-    @contents.all? do |content|
+    @contents.chars.all? do |content|
       content == "0" || content == "." || content == "\n"
     end
   end
 
+  def braille_complete_letters
+    braille_letters = BrailleTranslator.new(@contents)
+    braille_letters.complete_letters
+  end
+
   def translate
-    require "pry"; binding.pry
     if braille?
-      @contents.map do |character|
+      braille_complete_letters.map do |character|
         @english_dictionary[character]
-      end
+      end.join()
     else
       @contents.chars.map do |character|
         @braille_dictionary[character]

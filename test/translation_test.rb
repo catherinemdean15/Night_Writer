@@ -2,6 +2,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/translation'
+require './lib/braille_translator'
 
 class TranslationTest < Minitest::Test
 
@@ -26,10 +27,17 @@ class TranslationTest < Minitest::Test
     assert_equal [["0.","..",".."]], translation_3.translate
   end
 
+  def test_braille_complete_letters
+    contents = "0.00\n0..0\n..00"
+    translation_3 = Translation.new(contents)
+    expected = [["0.","0.",".."], ["00",".0","00"]]
+    assert_equal expected, translation_3.braille_complete_letters
+  end
+
   def test_it_translates_when_braille
     contents = "0.00\n0..0\n..00"
     translation_3 = Translation.new(contents)
-    assert_equal "a", translation_3.translate
+    assert_equal "by", translation_3.translate
   end
 
 end
