@@ -76,12 +76,12 @@ attr_reader :contents
   end
 
   def braille_complete_letters
-    braille_letters = BrailleTranslator.new(@contents)
+    braille_letters = BrailleToEnglishFormat.new(@contents)
     braille_letters.formatted_complete_letters
   end
 
   def format_translation(translation)
-    formatted_translation = Format.new(translation)
+    formatted_translation = EnglishToBrailleFormat.new(translation)
     formatted_translation.final_string
   end
 

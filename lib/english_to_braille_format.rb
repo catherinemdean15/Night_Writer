@@ -1,4 +1,4 @@
-class Format
+class EnglishToBrailleFormat
 
   def initialize(translation)
     @translation = translation

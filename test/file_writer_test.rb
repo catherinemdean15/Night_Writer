@@ -3,8 +3,8 @@ require './test/test_helper'
 class FileWriterTest < Minitest::Test
 
   def setup
-    file_path = 'message.txt'
-    @file_writer = FileWriter.new(file_path, "braille.txt")
+    file_path = "message.txt"
+    @file_writer = FileWriter.new(file_path, "sample.txt")
     @tranlstaion = Translation.new("hi\n")
   end
 
@@ -13,21 +13,23 @@ class FileWriterTest < Minitest::Test
   end
 
   def test_it_counts_characters
-    assert_equal 3, @file_writer.count_characters
+    File.stubs(:read).returns("hello")
+    assert_equal 5, @file_writer.count_characters
   end
 
   def test_it_reads_file
-    assert_equal "hi\n", @file_writer.read_file
+    File.stubs(:read).returns("hello")
+    assert_equal "hello", @file_writer.read_file
   end
 
   def test_it_writes_new_file
-    new_file = 'braille.txt'
+    new_file = 'sample.txt'
     assert new_file, @file_writer.write_file
-    assert_equal "0..0\n000.\n.... ", File.read(new_file)
   end
 
   def test_it_creates_output
-    assert_instance_of String, @file_writer.create_output
+    @file_writer.stubs(:count_characters).returns(5)
+    assert_equal "Created 'sample.txt' containing 5 characters", @file_writer.create_output
   end
 
 end

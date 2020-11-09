@@ -1,4 +1,4 @@
-class BrailleTranslator
+class BrailleToEnglishFormat
 
   def initialize(contents)
     @contents = contents

@@ -1,4 +1,3 @@
-require './lib/output'
 require './lib/file_writer'
 
 file_writer = FileWriter.new(ARGV[0], ARGV[1])
