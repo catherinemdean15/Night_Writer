@@ -89,9 +89,10 @@ attr_reader :contents
         @english_dictionary[character]
       end.join()
     else
-      @contents.chars.map do |character|
+      translation = @contents.chars.map do |character|
         @braille_dictionary[character]
       end
+      format_translation(translation)
     end
   end
 
