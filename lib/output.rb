@@ -1,14 +1,12 @@
-require './lib/file_writer'
+class Output
 
-class Output < FileWriter
-
-  def initialize(file_path, new_file_name)
-    @file_path = file_path
+  def initialize(new_file_name, amount_of_characters)
     @new_file_name = new_file_name
+    @amount_of_characters = amount_of_characters
   end
 
   def reply
-    "Created '#{@new_file_name}' containing #{count_characters} characters"
+    "Created '#{@new_file_name}' containing #{@amount_of_characters} characters"
   end
 
 end

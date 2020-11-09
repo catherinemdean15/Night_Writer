@@ -1,12 +1,14 @@
-class EnglishToBrailleFormat
+require './lib/translation'
 
-  def initialize(translation)
-    @translation = translation
+class EnglishToBrailleFormat < Translation
+
+  def translation
+    translate(@contents)
   end
 
   def join_by_row
     letters = Hash.new("")
-    @translation.each do |letter|
+    translation.each do |letter|
       letter.each_with_index do |character, index|
         letters[index] += letter[index]
       end
@@ -39,6 +41,10 @@ class EnglishToBrailleFormat
       complete_string += "#{join_characters[row]}\n"
     end
     complete_string
+  end
+
+  def format_translation
+    final_string
   end
 
 end
