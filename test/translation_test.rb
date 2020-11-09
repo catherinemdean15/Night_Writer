@@ -3,6 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/translation'
 require './lib/braille_translator'
+require './lib/format'
 
 class TranslationTest < Minitest::Test
 
@@ -38,6 +39,11 @@ class TranslationTest < Minitest::Test
     contents = "0.00\n0..0\n..00"
     translation_3 = Translation.new(contents)
     assert_equal "by", translation_3.translate
+  end
+
+  def test_it_fomats_translation_to_braille
+    contents = [["0.", "00", ".."], ["0.", ".0", ".."], ["0.", "0.", "0."], ["0.", "0.", "0."], ["0.", ".0", "0."]]
+    assert_equal "0.0.0.0.0.\n00.00.0..0\n....0.0.0.\n", @translation.format_translation(contents)
   end
 
 end

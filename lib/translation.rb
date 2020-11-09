@@ -78,6 +78,11 @@ attr_reader :contents
     braille_letters.complete_letters
   end
 
+  def format_translation(translation)
+    formatted_translation = Format.new(translation)
+    formatted_translation.final_string
+  end
+
   def translate
     if braille?
       braille_complete_letters.map do |character|

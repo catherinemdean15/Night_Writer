@@ -6,7 +6,7 @@ class Format
 
   def join_by_row
     letters = Hash.new("")
-    @translation.translate.each do |letter|
+    @translation.each do |letter|
       letter.each_with_index do |character, index|
         letters[index] += letter[index]
       end
