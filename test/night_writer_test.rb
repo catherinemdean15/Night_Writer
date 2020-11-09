@@ -1,7 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/output'
-require './lib/night_writer'
+require './test/test_helper'
 
 def test_it_writes_file
   new_file = 'braille.txt'
