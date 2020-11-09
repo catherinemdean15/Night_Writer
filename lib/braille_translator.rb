@@ -33,16 +33,16 @@ class BrailleTranslator
 
   def formatted_complete_letters
     formatted_letters = complete_letters
-    formatted_letters.each_with_index do |letter, index|
-      if letter.length > 3
-        first_letter = letter.each_slice(3).to_a
-        first_letter.each do |letter|
-          second_letter = first_letter[1]
-          formatted_letters << second_letter
+    until formatted_letters.all? {|letter| letter.length < 4}
+        formatted_letters.each_with_index do |letter, index|
+          if letter.length > 3
+            first_letter = letter.each_slice(3).to_a
+            second_letter = first_letter[1]
+            formatted_letters << second_letter
+            first_letter.pop
+            formatted_letters[index] = first_letter.flatten
+          end
         end
-        first_letter.pop
-        formatted_letters[index] = first_letter.flatten
-      end
     end
     formatted_letters
   end

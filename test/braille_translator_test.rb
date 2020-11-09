@@ -32,7 +32,7 @@ class BrailleTranslatorTest < Minitest::Test
   end
 
   def test_formatted_complete_letters
-    expected = [["0.", "0.", ".."], ["00", ".0", "00"], ["0.", "0.", ".."], ["0.", "0.", ".."], ["00", ".0", "00"], ["00", ".0", "00"]]
+    expected = [["0.", "0.", ".."], ["00", ".0", "00"], ["0.", "0.", ".."], ["00", ".0", "00"]]
     assert_equal expected, @braille_translator.formatted_complete_letters
   end
 
