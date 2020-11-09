@@ -10,7 +10,9 @@ class FileWriter
   end
 
   def count_characters
-    File.read(@file_path).size
+    [File.read(@new_file_name).size, File.read(@file_path).size].min_by do |file|
+      file
+    end
   end
 
   def read_file
