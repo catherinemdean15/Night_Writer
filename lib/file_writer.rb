@@ -5,6 +5,7 @@ require './lib/brailleable'
 
 class FileWriter
   include Brailleable
+  attr_reader :contents
 
   def initialize(file_path, new_file_name)
     @file_path = file_path
@@ -13,13 +14,7 @@ class FileWriter
   end
 
   def count_characters
-    [File.read(@new_file_name).size, File.read(@file_path).size].min_by do |file|
-      file
-    end
-  end
-
-  def read_file
-    @contents
+    [File.read(@new_file_name).size, @contents.size].min
   end
 
   def write_file
