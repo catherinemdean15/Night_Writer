@@ -18,8 +18,8 @@ class FileWriterTest < Minitest::Test
   end
 
   def test_it_reads_file
-    File.stubs(:read).returns("hello")
-    assert_equal "hello", @file_writer.read_file
+    File.stubs(:read).returns("hello\n")
+    assert_equal "hello\n", @file_writer.contents
   end
 
   def test_it_writes_new_file
